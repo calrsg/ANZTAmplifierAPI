@@ -14,7 +14,30 @@ with open("data.json", "r") as f:
 amplifiers = {
     0: Boost(),
     1: DudeThatFingerlock(),
-    2: LimitBreak()
+    2: LimitBreak(),
+    3: ColdClearEyesI(),
+    4: ColdClearEyesII(),
+    5: ColdClearEyesIII(),
+    6: Gambler(),
+    7: TheKingI(),
+    8: TheKingII(),
+    9: TheKingIII(),
+    10: MakeItRock(),
+    11: YinAndYangI(),
+    12: YinAndYangII(),
+    13: YinAndYangIII(),
+    14: ClassicFarmerI(),
+    15: ClassicFarmerII(),
+    16: SynchronisedI(),
+    17: SynchronisedII(),
+    18: GoWithTheFlow(),
+    19: LoadbearerI(),
+    20: LoadbearerII(),
+    21: LoadbearerIII(),
+    22: TheDragonConsumesI(),
+    23: TheDragonConsumesII(),
+    24: TheDragonConsumesIII(),
+    25: TrueHero()
 }
 
 
