@@ -219,7 +219,7 @@ class YinAndYangIII(Amplifier):
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
             highest_score_player = max(team.get_player_scores(), key=lambda player_score: player_score.get_score(),
-                                       defualt=None)
+                                       default=None)
             highest_score_index = team.get_player_scores().index(highest_score_player)
             acc = team.get_player_scores()[1 - highest_score_index].get_acc()
             multiplier = 1.1 if team == match.amplifier_users else 1.0
