@@ -297,8 +297,8 @@ class LoadbearerI(Amplifier):
         super().__init__(31, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
-                           match.amplifier_users.get_player_scores()[1].get_score()
+        score_difference = abs(match.amplifier_users.get_player_scores()[0].get_score() -
+                               match.amplifier_users.get_player_scores()[1].get_score())
         score_added = score_difference * 0.25
 
         if match.amplifier_users == match.team1:
@@ -312,8 +312,8 @@ class LoadbearerII(Amplifier):
         super().__init__(32, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
-                           match.amplifier_users.get_player_scores()[1].get_score()
+        score_difference = abs(match.amplifier_users.get_player_scores()[0].get_score() -
+                               match.amplifier_users.get_player_scores()[1].get_score())
         score_added = score_difference * 0.5
 
         if match.amplifier_users == match.team1:
@@ -327,8 +327,8 @@ class LoadbearerIII(Amplifier):
         super().__init__(33, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
-                           match.amplifier_users.get_player_scores()[1].get_score()
+        score_difference = abs(match.amplifier_users.get_player_scores()[0].get_score() -
+                               match.amplifier_users.get_player_scores()[1].get_score())
         score_added = score_difference * 0.5
 
         if match.amplifier_users == match.team1:
