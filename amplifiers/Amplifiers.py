@@ -81,19 +81,6 @@ class Amplifier:
         return self.amplifier_uses
 
 
-class Boost(Amplifier):
-    """
-    TEST AMPLIFIER: Boosts using teams score by 30%
-    """
-
-    def __init__(self):
-        super().__init__(0, 1)
-
-    def get_modified_score(self, match: MatchData) -> (int, int):
-        [score.set_score(round(score.get_score() * 1.3)) for score in match.amplifier_users.get_player_scores()]
-        return match.team1.get_score(), match.team2.get_score()
-
-
 class DudeThatFingerlock(Amplifier):
     def __init__(self):
         super().__init__(1, 2)
@@ -143,7 +130,7 @@ class ColdClearEyesII(Amplifier):
 
 class Gambler(Amplifier):
     def __init__(self):
-        super().__init__(6, 1)
+        super().__init__(14, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.25)) for score in match.amplifier_users.get_player_scores()]
@@ -152,7 +139,7 @@ class Gambler(Amplifier):
 
 class TheKingI(Amplifier):
     def __init__(self):
-        super().__init__(7, 1)
+        super().__init__(15, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.9)) for score in match.amplifier_users.get_player_scores()]
@@ -161,7 +148,7 @@ class TheKingI(Amplifier):
 
 class TheKingII(Amplifier):
     def __init__(self):
-        super().__init__(8, 1)
+        super().__init__(16, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 2)) for score in match.amplifier_users.get_player_scores()]
@@ -170,7 +157,7 @@ class TheKingII(Amplifier):
 
 class TheKingIII(Amplifier):
     def __init__(self):
-        super().__init__(9, 2)
+        super().__init__(17, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 2)) for score in match.amplifier_users.get_player_scores()]
@@ -179,7 +166,7 @@ class TheKingIII(Amplifier):
 
 class MakeItRock(Amplifier):
     def __init__(self):
-        super().__init__(10, 1)
+        super().__init__(18, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         set_team = match.team2 if match.amplifier_users == match.team1 else match.team1
@@ -189,7 +176,7 @@ class MakeItRock(Amplifier):
 
 class YinAndYangI(Amplifier):
     def __init__(self):
-        super().__init__(11, 1)
+        super().__init__(20, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
@@ -207,7 +194,7 @@ class YinAndYangI(Amplifier):
 
 class YinAndYangII(Amplifier):
     def __init__(self):
-        super().__init__(12, 1)
+        super().__init__(21, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
@@ -225,7 +212,7 @@ class YinAndYangII(Amplifier):
 
 class YinAndYangIII(Amplifier):
     def __init__(self):
-        super().__init__(13, 2)
+        super().__init__(22, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
@@ -243,7 +230,7 @@ class YinAndYangIII(Amplifier):
 
 class ClassicFarmerI(Amplifier):
     def __init__(self):
-        super().__init__(14, 1)
+        super().__init__(25, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.05)) for score in match.amplifier_users.get_player_scores()]
@@ -252,7 +239,7 @@ class ClassicFarmerI(Amplifier):
 
 class ClassicFarmerII(Amplifier):
     def __init__(self):
-        super().__init__(15, 2)
+        super().__init__(26, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.05)) for score in match.amplifier_users.get_player_scores()]
@@ -261,7 +248,7 @@ class ClassicFarmerII(Amplifier):
 
 class SynchronisedI(Amplifier):
     def __init__(self):
-        super().__init__(16, 1)
+        super().__init__(28, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         base_multiplier = 1.1
@@ -277,7 +264,7 @@ class SynchronisedI(Amplifier):
 
 class SynchronisedII(Amplifier):
     def __init__(self):
-        super().__init__(17, 1)
+        super().__init__(29, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         base_multiplier = 1.2
@@ -291,9 +278,10 @@ class SynchronisedII(Amplifier):
          match.amplifier_users.get_player_scores()]
         return match.team1.get_score(), match.team2.get_score()
 
+
 class GoWithTheFlow(Amplifier):
     def __init__(self):
-        super().__init__(18, 1)
+        super().__init__(30, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.15)) for score in match.amplifier_users.get_player_scores()]
@@ -302,7 +290,7 @@ class GoWithTheFlow(Amplifier):
 
 class LoadbearerI(Amplifier):
     def __init__(self):
-        super().__init__(19, 1)
+        super().__init__(31, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
@@ -317,7 +305,7 @@ class LoadbearerI(Amplifier):
 
 class LoadbearerII(Amplifier):
     def __init__(self):
-        super().__init__(20, 1)
+        super().__init__(32, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
@@ -332,7 +320,7 @@ class LoadbearerII(Amplifier):
 
 class LoadbearerIII(Amplifier):
     def __init__(self):
-        super().__init__(21, 2)
+        super().__init__(33, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         score_difference = match.amplifier_users.get_player_scores()[0].get_score() - \
@@ -345,9 +333,20 @@ class LoadbearerIII(Amplifier):
             return match.team1.get_score(), round(match.team2.get_score() + score_added)
 
 
+class TrueHero(Amplifier):
+    def __init__(self):
+        super().__init__(36, 3)
+
+    def get_modified_score(self, match: MatchData) -> (int, int):
+        highest_score_player = max(match.amplifier_users.get_player_scores(), key=lambda player_score: player_score.get_score())
+
+        highest_score_player.set_score(highest_score_player.get_score() * 1.3)
+        return match.team1.get_score(), match.team2.get_score()
+
+
 class TheDragonConsumesI(Amplifier):
     def __init__(self):
-        super().__init__(22, 1)
+        super().__init__(37, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.1)) for score in match.amplifier_users.get_player_scores()]
@@ -356,7 +355,7 @@ class TheDragonConsumesI(Amplifier):
 
 class TheDragonConsumesII(Amplifier):
     def __init__(self):
-        super().__init__(23, 1)
+        super().__init__(38, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.2)) for score in match.amplifier_users.get_player_scores()]
@@ -365,20 +364,8 @@ class TheDragonConsumesII(Amplifier):
 
 class TheDragonConsumesIII(Amplifier):
     def __init__(self):
-        super().__init__(24, 2)
+        super().__init__(39, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         [score.set_score(round(score.get_score() * 1.2)) for score in match.amplifier_users.get_player_scores()]
         return match.team1.get_score(), match.team2.get_score()
-
-
-class TrueHero(Amplifier):
-    def __init__(self):
-        super().__init__(25, 3)
-
-    def get_modified_score(self, match: MatchData) -> (int, int):
-        highest_score_player = max(match.amplifier_users.get_player_scores(), key=lambda player_score: player_score.get_score())
-
-        highest_score_player.set_score(highest_score_player.get_score() * 1.3)
-        return match.team1.get_score(), match.team2.get_score()
-
