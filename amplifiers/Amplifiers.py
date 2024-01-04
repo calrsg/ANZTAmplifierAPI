@@ -255,13 +255,14 @@ class SynchronisedI(Amplifier):
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         base_multiplier = 1.1
-        acc_difference = match.amplifier_users.get_player_scores()[0].get_acc() - \
-                         match.amplifier_users.get_player_scores()[1].get_acc()
+        acc_difference = abs(match.amplifier_users.get_player_scores()[0].get_acc() -
+                             match.amplifier_users.get_player_scores()[1].get_acc())
         if acc_difference >= 2:
             base_multiplier = 1.0
         else:
             base_multiplier -= 0.05 * acc_difference
-        [score.set_score(round(score.get_score() * base_multiplier)) for score in match.amplifier_users.get_player_scores()]
+        [score.set_score(round(score.get_score() * base_multiplier)) for score in
+         match.amplifier_users.get_player_scores()]
         return match.team1.get_score(), match.team2.get_score()
 
 
@@ -271,8 +272,8 @@ class SynchronisedII(Amplifier):
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         base_multiplier = 1.2
-        acc_difference = match.amplifier_users.get_player_scores()[0].get_acc() - \
-                         match.amplifier_users.get_player_scores()[1].get_acc()
+        acc_difference = abs(match.amplifier_users.get_player_scores()[0].get_acc() -
+                             match.amplifier_users.get_player_scores()[1].get_acc())
         if acc_difference >= 4:
             base_multiplier = 1.0
         else:
@@ -341,7 +342,8 @@ class TrueHero(Amplifier):
         super().__init__(36, 3)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        highest_score_player = max(match.amplifier_users.get_player_scores(), key=lambda player_score: player_score.get_score())
+        highest_score_player = max(match.amplifier_users.get_player_scores(),
+                                   key=lambda player_score: player_score.get_score())
 
         highest_score_player.set_score(highest_score_player.get_score() * 1.3)
         return match.team1.get_score(), match.team2.get_score()
