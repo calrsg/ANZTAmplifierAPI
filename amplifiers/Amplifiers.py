@@ -180,11 +180,12 @@ class YinAndYangI(Amplifier):
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
-            highest_score = max(team.get_player_scores())
-            highest_score_index = team.get_player_scores().index(highest_score)
+            highest_score_player = max(team.get_player_scores(), key=lambda player_score: player_score.get_score(),
+                                       default=None)
+            highest_score_index = team.get_player_scores().index(highest_score_player)
             acc = team.get_player_scores()[1 - highest_score_index].get_acc()
             multiplier = 1.05 if team == match.amplifier_users else 1.0
-            return round(highest_score * acc / 100 * multiplier)
+            return round(highest_score_player.get_score() * acc / 100 * multiplier)
 
         team1_score = get_team_info(match.team1)
         team2_score = get_team_info(match.team2)
@@ -198,11 +199,12 @@ class YinAndYangII(Amplifier):
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
-            highest_score = max(team.get_player_scores())
-            highest_score_index = team.get_player_scores().index(highest_score)
+            highest_score_player = max(team.get_player_scores(), key=lambda player_score: player_score.get_score(),
+                                       default=None)
+            highest_score_index = team.get_player_scores().index(highest_score_player)
             acc = team.get_player_scores()[1 - highest_score_index].get_acc()
-            multiplier = 1.10 if team == match.amplifier_users else 1.0
-            return round(highest_score * acc / 100 * multiplier)
+            multiplier = 1.1 if team == match.amplifier_users else 1.0
+            return round(highest_score_player.get_score() * acc / 100 * multiplier)
 
         team1_score = get_team_info(match.team1)
         team2_score = get_team_info(match.team2)
@@ -216,11 +218,12 @@ class YinAndYangIII(Amplifier):
 
     def get_modified_score(self, match: MatchData) -> (int, int):
         def get_team_info(team):
-            highest_score = max(team.get_player_scores())
-            highest_score_index = team.get_player_scores().index(highest_score)
+            highest_score_player = max(team.get_player_scores(), key=lambda player_score: player_score.get_score(),
+                                       defualt=None)
+            highest_score_index = team.get_player_scores().index(highest_score_player)
             acc = team.get_player_scores()[1 - highest_score_index].get_acc()
-            multiplier = 1.10 if team == match.amplifier_users else 1.0
-            return round(highest_score * acc / 100 * multiplier)
+            multiplier = 1.1 if team == match.amplifier_users else 1.0
+            return round(highest_score_player.get_score() * acc / 100 * multiplier)
 
         team1_score = get_team_info(match.team1)
         team2_score = get_team_info(match.team2)
