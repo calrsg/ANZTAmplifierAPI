@@ -9,12 +9,33 @@ app = Flask(__name__)
 with open("data.json", "r") as f:
     data = json.load(f)
 
-# ADD AMPLIFIERS HERE WHEN DONE :)
 # The number is the amplifier ID
 amplifiers = {
-    0: Boost(),
     1: DudeThatFingerlock(),
-    2: LimitBreak()
+    2: LimitBreak(),
+    3: ColdClearEyesI(),
+    4: ColdClearEyesII(),
+    5: ColdClearEyesIII(),
+    14: Gambler(),
+    15: TheKingI(),
+    16: TheKingII(),
+    17: TheKingIII(),
+    18: MakeItRock(),
+    20: YinAndYangI(),
+    21: YinAndYangII(),
+    22: YinAndYangIII(),
+    25: ClassicFarmerI(),
+    26: ClassicFarmerII(),
+    28: SynchronisedI(),
+    29: SynchronisedII(),
+    30: GoWithTheFlow(),
+    31: LoadbearerI(),
+    32: LoadbearerII(),
+    33: LoadbearerIII(),
+    36: TrueHero(),
+    37: TheDragonConsumesI(),
+    38: TheDragonConsumesII(),
+    39: TheDragonConsumesIII()
 }
 
 
