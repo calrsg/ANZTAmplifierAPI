@@ -346,7 +346,7 @@ class TrueHero(Amplifier):
                                    key=lambda player_score: player_score.get_score())
 
         highest_score_player.set_score(highest_score_player.get_score() * 1.3)
-        return match.team1.get_score(), match.team2.get_score()
+        return round(match.team1.get_score()), round(match.team2.get_score())
 
 
 class TheDragonConsumesI(Amplifier):
