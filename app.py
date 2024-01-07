@@ -26,6 +26,7 @@ amplifiers = {
     22: YinAndYangIII(),
     25: ClassicFarmerI(),
     26: ClassicFarmerII(),
+    27: Snail(),
     28: SynchronisedI(),
     29: SynchronisedII(),
     30: GoWithTheFlow(),
