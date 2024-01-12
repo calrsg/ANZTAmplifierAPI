@@ -16,6 +16,7 @@ amplifiers = {
     3: ColdClearEyesI(),
     4: ColdClearEyesII(),
     5: ColdClearEyesIII(),
+    8: SnailSect(),
     14: Gambler(),
     15: TheKingI(),
     16: TheKingII(),
