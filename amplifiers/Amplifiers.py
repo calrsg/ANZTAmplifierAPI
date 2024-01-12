@@ -110,7 +110,7 @@ class ColdClearEyesI(Amplifier):
         return match.team1.get_score(), match.team2.get_score()
 
 
-class ColdClearEyesIII(Amplifier):
+class ColdClearEyesII(Amplifier):
     def __init__(self):
         super().__init__(4, 1)
 
@@ -119,7 +119,7 @@ class ColdClearEyesIII(Amplifier):
         return match.team1.get_score(), match.team2.get_score()
 
 
-class ColdClearEyesII(Amplifier):
+class ColdClearEyesIII(Amplifier):
     def __init__(self):
         super().__init__(5, 2)
 
