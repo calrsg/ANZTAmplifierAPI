@@ -259,6 +259,16 @@ class Snail(Amplifier):
         return team1_score, team2_score
 
 
+class SnailSect(Amplifier):
+    def __init__(self):
+        super().__init__(27, 1)
+
+    def get_modified_score(self, match: MatchData) -> (float, float):
+        team1_score = round((match.team1.get_player_scores()[0].get_acc() + match.team1.get_player_scores()[1].get_acc()) / 2, 2)
+        team2_score = round((match.team2.get_player_scores()[0].get_acc() + match.team2.get_player_scores()[1].get_acc()) / 2, 2)
+        return team1_score, team2_score
+
+
 class SynchronisedI(Amplifier):
     def __init__(self):
         super().__init__(28, 1)
