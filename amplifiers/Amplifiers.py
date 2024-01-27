@@ -261,7 +261,7 @@ class Snail(Amplifier):
 
 class SnailSect(Amplifier):
     def __init__(self):
-        super().__init__(27, 1)
+        super().__init__(8, 6)
 
     def get_modified_score(self, match: MatchData) -> (float, float):
         team1_score = round((match.team1.get_player_scores()[0].get_acc() + match.team1.get_player_scores()[1].get_acc()) / 2, 2)
