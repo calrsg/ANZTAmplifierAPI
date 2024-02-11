@@ -1,9 +1,10 @@
 import json
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from amplifiers.Amplifiers import *
 
 app = Flask(__name__)
-
+CORS(app)
 
 # Load player/team/amplifier data
 with open("data.json", "r") as f:
@@ -92,6 +93,26 @@ def score():
     if team_players is None:
         return jsonify({"error": "Team not found"}), 404
 
+    if player1_id not in team_players and player2_id not in team_players and player3_id not in team_players and player4_id not in team_players:
+        return jsonify({"error": "No players from the given team are found in the match data."}), 404
+
+    # Determine if players are out of order from teams
+    # Check if players are out of order and reorder them
+    if (player1_id in team_players) != (player2_id in team_players):
+        player_scores = [p1, p2, p3, p4]
+        # Find the index of the player who should be swapped
+        swap_index = 2 if player3_id in team_players else 3
+
+        if player1_id not in team_players:
+            player_scores[0], player_scores[swap_index] = player_scores[swap_index], player_scores[0]
+        else:
+            player_scores[1], player_scores[swap_index] = player_scores[swap_index], player_scores[1]
+
+        # Create team objects with reordered players
+        team1 = Team(player_scores[:2])
+        team2 = Team(player_scores[2:])
+
+
     # Identify the team for the amplifier
     amplifier_users = team1 if player1_id in team_players or player2_id in team_players else team2
     match = MatchData(amplifier_users, amplifier_id, team1, team2)
@@ -107,6 +128,8 @@ def score():
         {
             "team1_score":  modified_scores[0],
             "team2_score":  modified_scores[1],
+            "team1_players:": [pid.get_id() for pid in team1.get_player_scores()],
+            "team2_players:": [pid.get_id() for pid in team2.get_player_scores()]
         })
 
 
