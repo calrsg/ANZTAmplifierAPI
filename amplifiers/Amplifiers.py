@@ -115,7 +115,7 @@ class ColdClearEyesIII(Amplifier):
         super().__init__(4, 1)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        [score.set_score(round(score.get_score() * 1.15)) for score in match.amplifier_users.get_player_scores()]
+        [score.set_score(round(score.get_score() * 1.10)) for score in match.amplifier_users.get_player_scores()]
         return match.team1.get_score(), match.team2.get_score()
 
 
@@ -124,7 +124,7 @@ class ColdClearEyesII(Amplifier):
         super().__init__(5, 2)
 
     def get_modified_score(self, match: MatchData) -> (int, int):
-        [score.set_score(round(score.get_score() * 1.15)) for score in match.amplifier_users.get_player_scores()]
+        [score.set_score(round(score.get_score() * 1.05)) for score in match.amplifier_users.get_player_scores()]
         return match.team1.get_score(), match.team2.get_score()
 
 
