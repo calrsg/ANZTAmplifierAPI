@@ -5,6 +5,7 @@ _An API for calculating the score-modifying **amplifiers** used in **ANZT 11 Sum
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![Licence](https://img.shields.io/badge/Licence-MIT-lightgrey)](#licence)
 
+---
 ## What’s this for?  
 During ANZT 11 Summer each 2-player team can equip exactly **one amplifier** that tweaks how their in-game scores are evaluated.  
 This micro-service:
@@ -22,6 +23,7 @@ Amplifiers are Team Fight Tactics styled augments designed to revitalize standar
 
 A full list of amplifiers for ANZT 11 Summer can be found [here](https://docs.google.com/spreadsheets/d/1RWuqemRanJGwpT9H1fiRNz0g8chFhmRNRNDzgR4Kstc/edit?gid=1207981974#gid=1207981974). These were designed based on feedback and learnings from ANZT 10 Summer to create a streamlined yet unique experience for players and staff.
 
+---
 ## How it works
 
 ### `data.json` – the team register
